@@ -1,0 +1,56 @@
+/*
+---
+name: Link
+category:
+ - component/typography/link
+---
+
+```html
+<article class="c-article">
+	<p>テキストが入っています。テキストが入っています。<a href="/DUMMY">テキストリンク</a>テキストが入っています。</li>
+	<ul class="c-list--link">
+		<li><a href="/DUMMY"><i class="c-link__icon c-list__icon -front fas fa-caret-right"></i>矢印リンク矢印リンク矢印リンク</a></li>
+		<li><a href="/DUMMY"><i class="c-link__icon c-list__icon -front fas fa-caret-right"></i>別窓リンク別窓リンク別窓リンク別窓リンク<i class="c-link__icon -rear far fa-window-restore"></i></a></li>
+		<li><a href="/DUMMY"><i class="c-link__icon c-list__icon -front fas fa-caret-right"></i>PDFリンクPDFリンクPDFリンクPDFリンク(532KB)<i class="c-link__icon -rear far fa-file-pdf"></i></a></li>
+	</ul>
+</article>
+```
+*/
+
+// a:not([class]) {
+// 	color: $c_main;
+// 	text-decoration: none;
+// 	&:hover { text-decoration: underline; }
+// }
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &,
+  &:before,
+  &:after,
+  * {
+    transition: opacity 0.15s linear;
+  }
+
+  &:hover {
+    opacity: .75;
+    cursor: pointer;
+    text-decoration: none;
+
+    * {
+      opacity: .75;
+      text-decoration: none;
+    }
+  }
+}
+
+.c-link__icon {
+	@include fz(16);
+	vertical-align: 0;
+	// リンクの前に配置
+	&.-front { margin-right: 3px; }
+	// リンクの後ろに配置
+	&.-rear { margin-left: 5px; }
+}

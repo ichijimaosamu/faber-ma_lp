@@ -1,0 +1,78 @@
+/*
+---
+name: Text
+category:
+ - component/typography/text
+---
+
+## テキスト
+
+```html
+<p class="c-text">テキストが入ります。テキストが入ります。テキストが入ります。<br>テキストが入ります。テキストが入ります。</p>
+
+<article class="c-article">
+	<p>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+	<p>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</article>
+```
+*/
+
+.c-text { margin: 10px 0; }
+
+.c-article p { @extend .c-text; }
+
+
+/*
+---
+name: highlighted Text 
+category:
+ - component/typography/text
+---
+
+## テキスト
+
+```html
+<p class="c-text--highlighted">テキストが入ります。テキストが入ります。テキストが入ります。<br>テキストが入ります。テキストが入ります。</p>
+
+<article class="c-article">
+	<p>
+		テキストが入ります。<strong>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</strong>
+		<br>テキストが<em>入ります。</em>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。<em>テキストが入ります。</em>
+	</p>
+</article>
+```
+*/
+
+.c-text--highlighted {
+	font-style: normal;
+	font-weight: bold;
+}
+
+.c-article {
+	strong, em { @extend .c-text--highlighted; }
+}
+
+
+/*
+---
+name: align Text 
+category:
+ - component/typography/text
+---
+
+## テキスト位置
+
+```html
+<p class="c-text c-text--align-right">テキストが入ります。テキストが入ります。テキストが入ります。<br>テキストが入ります。テキストが入ります。</p>
+<p class="c-text c-text--align-center">テキストが入ります。テキストが入ります。テキストが入ります。<br>テキストが入ります。テキストが入ります。</p>
+<p class="c-text c-text--align-left">テキストが入ります。テキストが入ります。テキストが入ります。<br>テキストが入ります。テキストが入ります。</p>
+
+```
+*/
+
+.c-text--align-right { text-align: right; }
+
+.c-text--align-center { text-align: center; }
+
+.c-text--align-left { text-align: left; }
+

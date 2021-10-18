@@ -1,0 +1,70 @@
+/*
+---
+name: Pager
+category:
+ - component/topics/pager
+---
+
+```html
+<ul class="c-pager">
+	<li class="c-pager__item c-pager__control"><a class="c-pager__link" href="/DUMMY"><i class="c-pager__icon fas fa-angle-double-left"></i></a></li>
+	<li class="c-pager__item c-pager__control"><a class="c-pager__link" href="/DUMMY"><i class="c-pager__icon fas fa-angle-left"></i></a></li>
+	<li class="c-pager__item"><a class="c-pager__link" href="/DUMMY">1</a></li>
+	<li class="c-pager__item"><a class="c-pager__link is-current" href="/DUMMY">2</a></li>
+	<li class="c-pager__item"><a class="c-pager__link" href="/DUMMY">3</a></li>
+	<li class="c-pager__item"><a class="c-pager__link" href="/DUMMY">4</a></li>
+	<li class="c-pager__item"><a class="c-pager__link" href="/DUMMY">5</a></li>
+	<li class="c-pager__item c-pager__control"><a class="c-pager__link" href="/DUMMY"><i class="c-pager__icon fas fa-angle-right"></i></a></li>
+	<li class="c-pager__item c-pager__control"><a class="c-pager__link" href="/DUMMY"><i class="c-pager__icon fas fa-angle-double-right"></i></a></li>
+</ul>
+```
+*/
+
+.pagination {
+	width: 100%;
+	color: #009EBD;
+	
+	& {
+		@include ls(-500);
+		text-align: center;
+	}
+	.page-numbers {
+		display: inline-block;
+		letter-spacing: 0;
+		vertical-align: top;
+		&:not(:first-child) { margin-left: 10px; }
+	}
+	a {
+		display: block;
+		border: 1px solid #009EBD;
+		background-color: #fff;
+		transition: .4s border, .4s background-color, .4s color;
+		@include pc() {
+			width: 28px;
+			height: 28px;
+			line-height: 26px;
+		}
+		@include sp() {
+			width: 30px;
+			height: 30px;
+			line-height: 28px;
+		}
+		&:hover {
+			border-color: #009EBD;
+			background-color: #009EBD;
+			color: #fff;
+		}
+	}
+	.c-pager__item {
+		display: inline-block;
+	}
+	.current {
+		display: inline-block;
+		width: 28px;
+		height: 28px;
+		background-color: #009EBD;
+		color: #fff;
+		border-color: #009EBD;
+		line-height: 26px;
+	}
+}

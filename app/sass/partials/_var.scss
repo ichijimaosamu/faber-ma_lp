@@ -1,0 +1,11 @@
+$img_path:        '/files/user/images/';
+$base_font_size:  14;
+$base_font_color: #000;
+
+$c_main:          #213C6D;
+$c_white:         #fff;
+$c_border:        #ccc;
+
+$break_point:     768px; // @include pc/sp(){...} で参照されるブレイクポイント
+$break_point2:     1399px;
+$grid_split_num:  12; // Gridの分割

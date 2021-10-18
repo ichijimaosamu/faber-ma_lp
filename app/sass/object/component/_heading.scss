@@ -1,0 +1,380 @@
+/*
+---
+name: Heading h1
+category:
+ - component/typography/heading
+---
+
+## h1
+
+```html
+<h1 class="c-heading--lv1">h1テキストh1テキストh1テキストh1テキストh1テキストh1テキストh1テキストh1テキスト</h1>
+
+<article class="c-article">
+	<h1>h1テキストh1テキストh1テキストh1テキスト</h1>
+</article>
+
+```
+*/
+
+.c-heading--lv1 {
+	color: $c_main;
+	line-height: 1.2;
+	@include pc() {
+		margin-bottom: 30px;
+		@include fz(40);
+	}
+	@include sp() {
+		margin-bottom: 20px;
+		@include fz(28);
+	}
+}
+
+.c-article h1 {
+	@extend .c-heading--lv1;
+}
+
+/*
+---
+name: Heading h2
+category:
+ - component/typography/heading
+---
+
+## h2
+
+```html
+<h2 class="c-heading--lv2">h2テキストh2テキストh2テキストh2テキストh2テキストh2テキストh2テキストh2テキスト</h2>
+
+<article class="c-article">
+	<h2>h2テキストh2テキストh2テキストh2テキスト</h2>
+</article>
+
+```
+*/
+
+.c-heading--lv2 {
+	border-bottom: 2px solid $c_main;
+	line-height: 1.4;
+	@include pc() {
+		margin-bottom: 30px;
+		padding-bottom: 15px;
+		@include fz(28);
+	}
+	@include sp() {
+		margin-bottom: 20px;
+		padding-bottom: 10px;
+		@include fz(22);
+	}
+}
+
+.c-article h2 {
+	@extend .c-heading--lv2;
+}
+
+
+/*
+---
+name: Heading h3
+category:
+ - component/typography/heading
+---
+
+## h3
+
+```html
+<h3 class="c-heading--lv3">h3テキストh3テキストh3テキストh3テキストh3テキストh3テキストh3テキストh3テキストh3テキスト</h3>
+
+<article class="c-article">
+	<h3>h3テキストh3テキストh3テキストh3テキスト</h3>
+</article>
+
+```
+*/
+
+.c-heading--lv3 {
+	background-color: $c_main;
+	color: #fff;
+	line-height: 1.4;
+	@include pc() {
+		margin-bottom: 20px;
+		padding: 5px 10px;
+		@include fz(22);
+	}
+	@include sp() {
+		margin-bottom: 10px;
+		padding: 5px 10px;
+		@include fz(18);
+	}
+}
+
+.c-article h3 {
+	@extend .c-heading--lv3;
+}
+
+
+/*
+---
+name: Heading h4
+category:
+ - component/typography/heading
+---
+
+## h4
+
+```html
+<h4 class="c-heading--lv4">h4テキストh4テキストh4テキストh4テキストh4テキストh4テキストh4テキストh4テキスト</h4>
+
+<article class="c-article">
+	<h4>h4テキストh4テキストh4テキストh4テキスト</h4>
+</article>
+
+```
+*/
+
+.c-heading--lv4 {
+	border-left: 4px solid $c_main;
+	color: $c_main;
+	line-height: 1.4;
+	@include pc() {
+		margin-bottom: 20px;
+		padding: 3px 0 3px 10px;
+		@include fz(18);
+	}
+	@include sp() {
+		margin-bottom: 10px;
+		padding: 2px 0 2px 10px;
+		@include fz(16);
+	}
+}
+
+.c-article h4 {
+	@extend .c-heading--lv4;
+}
+
+
+
+
+
+.p-box {
+	&__heading {
+		position: relative;
+		color: #262C5B;
+		font-family: 'Roboto', sans-serif;
+		font-weight: bold;
+		@include pc() {
+			@include fz(76);
+			line-height: 58px;
+		}
+		@include tablet() {
+			@include fz(68);
+		}
+		@include sp() {
+			@include fz(30);
+			margin-bottom: 10px;
+			padding-left: 2px;
+		}
+
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+		}
+		&:before {
+			@include pc() {
+				top: -30px;
+				left: -62px;
+				width: 73px;
+				height: 86px;
+				background: url("#{$img_path}box_heading_bg1.png") left top no-repeat;
+			}
+			@include sp() {
+				top: -7px;
+				left: -21px;
+				width: 28px;
+				height: 36px;
+				background: url("#{$img_path}box_heading_bg1.png") left top no-repeat;
+				background-size: contain;
+			}
+		}
+		&:after {
+			@include pc() {
+				top: 95px;
+				left: 0;
+				width: 67px;
+				height: 5px;
+				background-color: #262C5B;
+			}
+			@include tablet() {
+				content: none;
+			}
+			@include sp() {
+				content: none;
+			}
+		}
+
+		&__jp {
+			font-family: 'Noto Sans JP', sans-serif;
+			@include pc() {
+				display: block;
+				margin: 78px 0 0 0;
+				@include fz(24);
+			}
+			@include sp() {
+				display: block;
+				@include fz(14);
+			}
+
+			&.-news,
+			&.-achievement,
+			&.-work {
+				@include tablet() {
+					margin: 0 0 0 20px;
+				}
+				@include sp() {
+					margin: 0 0 0 10px;
+				}
+			}
+			&.-company {
+				@include tablet() {
+					margin: 42px 0 0 0;
+				}
+				@include sp() {
+					margin-top: 10px;
+					line-height: 1.3;
+				}
+			}
+			&.-staff {
+				@include sp() {
+					margin-top: 10px;
+					line-height: 1.3;
+				}
+			}
+		}
+
+		&.-news {
+			@include pc() {
+				margin: 25px 0 66px;
+			}
+			@include tablet() {
+				display: flex;
+				align-items: center;
+				margin: 0;
+			}
+			@include sp() {
+				display: flex;
+				align-items: center;
+				margin-bottom: 0;
+			}
+		}
+
+		&.-company,
+		&.-staff {
+			margin-bottom: 40px;
+			color: #FFF;
+			@include sp() {
+				margin-bottom: 20px;
+			}
+
+			&:before {
+				background: url("#{$img_path}box_heading_bg2.png") left top no-repeat;
+				@include sp() {
+					background-size: contain;
+				}
+			}
+			&:after {
+				background-color: #FFF;
+			}
+		}
+
+		&.-achievement {
+			@include pc() {
+				margin: 0 0 66px;
+			}
+			@include tablet() {
+				display: flex;
+				align-items: center;
+				margin: 0;
+			}
+			@include sp() {
+				display: flex;
+				align-items: center;
+			}
+		}
+
+		&.-work {
+			@include tablet() {
+				display: flex;
+				align-items: center;
+				margin: 0;
+			}
+			@include sp() {
+				display: flex;
+				align-items: center;
+			}
+		}
+	}
+}
+
+.-lower {
+	.p-box {
+		&__heading {
+			@include pc() {
+				display: flex;
+				justify-content: space-between;
+				margin: 0 0 50px !important;
+				padding-bottom: 16px;
+				border-bottom: 5px solid #262C5B;
+			}
+			@include sp() {
+				margin-bottom: 10px;
+			}
+
+			&:after {
+				content: none;
+			}
+
+			&__jp {
+				@include pc() {
+					position: relative;
+					bottom: -9px;
+					margin: 0;
+					@include fz(35);
+					line-height: inherit;
+				}
+			}
+
+			&.-newsDetail {
+				display: inherit;
+				padding: 0 0 5px 20px;
+				color: #000;
+				@include fz(36);
+				@include tablet() {
+					@include fz(30);
+				}
+				@include sp() {
+					padding: 0 0 5px 15px;
+					@include fz(20);
+				}
+	
+				&:before {
+					top: -20px;
+					@include sp() {
+						top: 2px;
+					}
+				}
+
+				time {
+					display: block;
+					color: #1C212F;
+					@include fz(20);
+					font-weight: normal;
+					@include sp() {
+						margin-bottom: 3px;
+						@include fz(13);
+					}
+				}
+			}
+		}
+	}
+}

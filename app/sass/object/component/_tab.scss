@@ -1,0 +1,304 @@
+/*
+---
+name: Tab
+category:
+ - component/js/tab
+---
+
+```html
+<div class="c-tab">
+  <div class=c-tab__nav>
+    <button class="c-tab__nav__item is-active" data-tab="1" data-js="change-tab">タブ1</button>
+    <button class="c-tab__nav__item" data-tab="2" data-js="change-tab">タブ2</button>
+    <button class="c-tab__nav__item" data-tab="3" data-js="change-tab">タブ3</button>
+  </div>
+  <div class="c-tab__content__outer">
+    <div class="c-tab__content" data-tab-content="1">
+      <div class="c-tab__content__inner">
+        タブ1内容タブ1内容タブ1内容<br>
+        タブ1内容タブ1内容タブ1内容<br>
+        タブ1内容タブ1内容タブ1内容<br>
+        タブ1内容タブ1内容タブ1内容<br>
+        タブ1内容タブ1内容タブ1内容<br>
+        タブ1内容タブ1内容タブ1内容<br>
+        タブ1内容タブ1内容タブ1内容
+      </div>
+    </div>
+    <div class="c-tab__content" data-tab-content="2">
+      <div class="c-tab__content__inner">
+        タブ2内容タブ2内容タブ2内容<br>
+        タブ2内容タブ2内容タブ2内容<br>
+        タブ2内容タブ2内容タブ2内容
+      </div>
+    </div>
+    <div class="c-tab__content" data-tab-content="3">
+      <div class="c-tab__content__inner">
+        タブ3内容タブ3内容タブ3内容<br>
+        タブ3内容タブ3内容タブ3内容<br>
+        タブ3内容タブ3内容タブ3内容<br>
+        タブ3内容タブ3内容タブ3内容<br>
+        タブ3内容タブ3内容タブ3内容<br>
+        タブ3内容タブ3内容タブ3内容<br>
+        タブ3内容タブ3内容タブ3内容<br>
+        タブ3内容タブ3内容タブ3内容<br>
+        タブ3内容タブ3内容タブ3内容<br>
+        タブ3内容タブ3内容タブ3内容<br>
+        タブ3内容タブ3内容タブ3内容<br>
+        タブ3内容タブ3内容タブ3内容<br>
+        タブ3内容タブ3内容タブ3内容
+      </div>
+    </div>
+  </div>
+</div>
+```
+*/
+.c-tab {
+  &__nav {
+    display: flex;
+
+    &__item {
+      padding: 1em 2em;
+      border: solid 1px $c_border;
+      border-bottom: none;
+      background-color: $c_white;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:not(:last-child) {
+        border-right: none;
+      }
+
+      &.is-active {
+        background-color: darken($c_white, 10%);
+      }
+    }
+  }
+
+  &__content {
+    display: none;
+    position: relative;
+    z-index: 0;
+    width: 600px;
+    border: solid 1px $c_border;
+    background-color: $c_white;
+
+    &.is-active {
+      display: block;
+      z-index: 100;
+    }
+
+    &__inner {
+      padding: 1em;
+    }
+  }
+}
+
+.t-hti-news {
+  background-color: #e5f2f9;
+  @include pc() {
+    padding: 35px 50px 50px;
+  }
+  @include sp() {
+    padding: 20px;
+  }
+  @at-root {
+    &__head {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      @include fz(22);
+      @include ls(200);
+      @include pc() {
+        margin-bottom: 35px;
+      }
+      @include sp() {
+        margin-bottom: 20px;
+      }
+
+      &:before {
+        display: block;
+        width: 40px;
+        height: 1px;
+        margin-right: 15px;
+        background-color: #000;
+        content: "";
+      }
+      @at-root {
+        &__link {
+          @include fz(14);
+          @include ls(50);
+          font-weight: bold;
+          position: absolute;
+          top: 10px;
+          right: 0;
+          display: flex;
+          align-items: center;
+
+          &:after {
+            @extend %fa_properties;
+            content: $fa-var-angle-right;
+            @include fz(20);
+            color: #848c90;
+            margin-left: 10px;
+            position: relative;
+            top: -1px;
+          }
+        }
+      }
+    }
+
+    &__tab__head {
+      background-color: #fff;
+      border: solid 1px #e5f2f9;
+      padding: 20px 30px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &__tab__head.-jmhc {
+      border: solid 1px #65c15d;
+    }
+
+    &__tab__item.-jmhc {
+      &.is-active {
+        color: #3eb134;
+      }
+    }
+
+    &__tab__item {
+      margin-right: 40px;
+      @include fz(15);
+      @include ls(50);
+      font-weight: bold;
+      cursor: pointer;
+      position: relative;
+
+      &.is-active {
+        color: #0081c9;
+
+        &:after {
+          @extend %fa_properties;
+          content: $fa-var-angle-down;
+          position: absolute;
+          bottom: -20px;
+          right: 25%;
+          transform: translateX(-25%);
+          @include fz(25);
+        }
+      }
+    }
+
+    &__tab__body {
+      background-color: #fff;
+      position: relative;
+      overflow: hidden;
+      @include pc() {
+        padding: 30px 40px;
+        position: relative;
+        overflow: hidden;
+      }
+    }
+
+    &__tab__content {
+      height: 100%;
+      padding: 10px 0;
+      position: absolute;
+      background-color: #fff;
+      top: 20px;
+      @include pc() {
+        width: 1040px;
+        left: 30px;
+      }
+      @include sp() {
+        width: 98%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      &[data-tab-content="1"] {
+        z-index: 100;
+      }
+    }
+
+    .-list &__tab__content {
+      @include pc() {
+        width: 770px;
+      }
+    }
+
+    &__item {
+      display: flex;
+      flex-wrap: wrap;
+
+      &:not(:last-child) {
+        @include pc() {
+          margin-bottom: 15px;
+        }
+        @include sp() {
+          margin-bottom: 8px;
+        }
+      }
+      @at-root {
+        &__date {
+          width: 110px;
+          @include fz(14);
+          font-weight: bold;
+        }
+
+        &__category {
+          width: 120px;
+
+          span {
+            border: solid 1px #0081c9;
+            border-radius: 30px;
+            color: #0081c9;
+            @include fz(10);
+            font-weight: bold;
+            max-width: 120px;
+            padding: 5px 20px;
+
+            &.-jmhc {
+              border: solid 1px #3eb134;
+              border-radius: 30px;
+              color: #3eb134;
+            }
+          }
+        }
+
+        .-list &__title {
+          @include pc() {
+            width: 540px;
+          }
+        }
+
+        &__title {
+          @include fz(14);
+          font-weight: bold;
+          line-height: 1.5;
+          @include pc() {
+            width: 810px;
+            position: relative;
+            top: -1px;
+          }
+          @include sp() {
+            width: 90%;
+            line-height: 1.6;
+            margin-top: 8px;
+            margin-bottom: 10px;
+          }
+
+          a {
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+
+          .new {
+            color: #f16f29;
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+}

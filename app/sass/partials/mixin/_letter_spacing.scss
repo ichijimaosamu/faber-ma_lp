@@ -1,0 +1,4 @@
+// PSDのテキストに設定されている文字間のトラッキング値をCSS用に変換します
+@mixin ls($tracking) {
+  letter-spacing: $tracking / 1000 + em;
+}

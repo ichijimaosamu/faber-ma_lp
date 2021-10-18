@@ -1,0 +1,80 @@
+/*
+---
+name: Slider（flexslider）
+category:
+ - component/js/slider
+---
+
+```html
+<div class="c-slider flexslider" data-js="flexslider">
+  <ul class="c-slider__inner slides">
+    <li class="c-slider__item">
+      <picture>
+        <source media="(max-width: 768px)" srcset="/files/user/images/flexslider/flexslider_01.jpg">
+        <img src="/files/user/images/flexslider/flexslider_01.jpg" alt="">
+      </picture>
+    </li>
+    <li class="c-slider__item">
+      <picture>
+        <source media="(max-width: 768px)" srcset="/files/user/images/flexslider/flexslider_02.jpg">
+        <img src="/files/user/images/flexslider/flexslider_02.jpg" alt="">
+      </picture>
+    </li>
+    <li class="c-slider__item">
+      <picture>
+        <source media="(max-width: 768px)" srcset="/files/user/images/flexslider/flexslider_03.jpg">
+        <img src="/files/user/images/flexslider/flexslider_03.jpg" alt="">
+      </picture>
+    </li>
+    <li class="c-slider__item">
+      <picture>
+        <source media="(max-width: 768px)" srcset="/files/user/images/flexslider/flexslider_04.jpg">
+        <img src="/files/user/images/flexslider/flexslider_04.jpg" alt="">
+      </picture>
+    </li>
+  </ul>
+</div>
+```
+*/
+.c-slider {
+  &__inner {
+    @include pc() {
+      display: flex;
+      align-items: center;
+      height: 400px;
+      overflow: hidden;
+    }
+  }
+}
+
+/*
+---
+name: Slider（slickslider）
+category:
+ - component/js/slider
+---
+
+```html
+<div class="c-slickslider">
+  <div>
+    <a href="/dummy/"><img src="/files/user/images/600x400.png"></a>
+  </div>
+  <div>
+    <a href="/dummy/"><img src="/files/user/images/600x400.png"></a>
+  </div>
+  <div>
+    <a href="/dummy/"><img src="/files/user/images/600x400.png"></a>
+  </div>
+</div>
+```
+*/
+.c-slickslider {
+  img {
+    width: 100%;
+  }
+  .slick-arrow {
+    &:before{
+      color: #000;
+    }
+  }
+}

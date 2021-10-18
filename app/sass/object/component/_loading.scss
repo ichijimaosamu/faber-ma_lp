@@ -1,0 +1,33 @@
+/*
+---
+name: Loading
+category:
+ - component/js/loading
+---
+
+```html
+<div class="c-modal">
+  <div class="c-modal__bg"></div>
+  <div class="c-modal__contents--loading">
+    <i class="c-modal__spinner fas fa-spinner fa-pulse"></i>
+  </div>
+</div>
+<button type="button" data-js="loading-open">ローディング表示</button>
+```
+*/
+.c-modal {
+  &__contents {
+    &--loading {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      z-index: 9900;
+      transform: translate(-50%,-50%);
+    }
+  }
+  &__spinner {
+    color: #fff;
+    @include fz(100);
+  }
+}

@@ -1,0 +1,90 @@
+/********************************************
+		Common
+********************************************/
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+dd,
+dl,
+dt,
+label,
+ul,
+ol
+ {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+  @include sp() {
+    width: 100%;
+  }
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  @include pc() {
+    min-width: 1160px;
+  }
+}
+
+body {
+  color: $base_font_color;
+  font-family: "Noto Sans JP", sans-serif, "Hiragino Kaku Gothic Pro", Meiryo, "MS PGothic", "MS UI Gothic", Helvetica, Arial;
+  font-weight: 500;
+  @include fz($base_font_size);
+  @include sp() {
+     @include fz(12);
+  }
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    color: $base_font_color;
+    font-family : inherit;
+    @include fz($base_font_size);
+    @include sp() {
+        @include fz(16);
+    }
+}
+
+button,
+input[type="button"],
+input[type="submit"] {
+  border: none;
+}
+
+iframe {
+  vertical-align: top;
+}

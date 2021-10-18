@@ -1,0 +1,78 @@
+/*
+---
+name: Layout
+category:
+ - component/js/layout
+---
+
+```html
+
+```
+*/
+.c-globalNav {
+	&__head {
+		position: relative;
+		height: 50px;
+		background-color: $c_border;
+	}
+
+	&__bars {
+		display: flex;
+		position: absolute;
+		right: 0;
+		width: 50px;
+		height: 50px;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+
+		&:before {
+			@include fa(fas);
+			content: $fa-var-bars;
+		}
+		@at-root {
+			.is-active &__bars {
+				&:before {
+					content: $fa-var-times;
+				}
+			}
+		}
+	}
+
+	&__item {
+		padding: 1em;
+		&:not(:last-child) {
+			border-bottom: solid 1px $c_border;
+		}
+	}
+	@at-root {
+		.is-active &__body {
+			display: block;
+			left: 0;
+		}
+	}
+
+	&__body {
+		display: none;
+		position: fixed;
+		left: -100%;
+		z-index: 9999;
+		height: 100%;
+		background-color: $c_white;
+		transition: 0.3s;
+
+		&__bg {
+			display: none;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.7);
+			transition: 0.3s;
+		}
+		@at-root {
+			.is-active &__bg {
+				display: block;
+			}
+		}
+	}
+}

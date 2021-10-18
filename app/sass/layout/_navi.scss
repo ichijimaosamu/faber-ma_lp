@@ -1,0 +1,109 @@
+.p-globalMenu {
+  @include pc() {
+    display: flex;
+    align-items: center;
+  }
+
+  &.-footer {
+    @include sp() {
+      display: none;
+    }
+  }
+
+  &__list {
+    @include pc() {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      min-width: 468px;
+    }
+
+    &.-footer {
+      @media screen and (min-width: 768px) and (max-width: 1000px) {
+        margin: 20px auto 0;
+      }
+    }
+  }
+
+  &__item {
+    @include pc() {
+      position: relative;
+      margin-right: 30px;
+    }
+    @media screen and (min-width: 768px) and (max-width: 1220px) {
+      margin-right: 20px; 
+    }
+
+    &.-footer {
+      a {
+        color: #FFF;
+        @media screen and (max-width: 1220px) {
+          @include fz(14);
+        }
+
+        &:hover {
+          color: #FFF;
+        }
+        &:before {
+          @include pc() {
+            background-color: #FFF;
+          }
+        }
+      }
+    }
+
+    a {
+      transition: all 0.15s linear;
+      display: block;
+      color: #213C6D;
+      font-weight: bold;
+      @media screen and (min-width: 768px) and (max-width: 1220px) {
+        font-size: 1.14vw;
+      }
+
+      &:before {
+        @include pc() {
+          transform: translateX(-50%);
+          position: absolute;
+          bottom: -17px;
+          left: 50%;
+          content: '';
+          width: 0;
+          height: 3px;
+          background-color: #21ADBC;
+          transition: .3s;
+        }
+      }
+
+      &:hover,
+      &.-is-active {
+        &:before {
+          @include pc() {
+            width: 130%;
+          }
+        }
+      }
+
+      &:hover {
+        @include pc() {
+          opacity: 1;
+          color: #21ADBC;
+        } 
+      }
+
+      &.-is-active {
+        @include pc() {
+          color: #21ADBC;
+        }
+      }
+    }
+  }
+}
+
+#overlay,
+#humberger,
+#drawernav {
+  @media screen and (min-width: 1113px) {
+    display: none;
+  }
+}

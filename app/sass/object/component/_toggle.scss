@@ -1,0 +1,287 @@
+/*
+---
+name: Toggle radio button (default)
+category:
+ - component/form/toggle
+---
+
+```html
+<div class="c-form__inner">
+    <ul class="c-form-toggle__list">
+        <li><label><input type="radio" name="radio1" value="" class="c-form-toggle__radio">選択肢その1</label></li>
+        <li><label><input type="radio" name="radio1" value="" class="c-form-toggle__radio">選択肢その2</label></li>
+        <li><label><input type="radio" name="radio1" value="" class="c-form-toggle__radio">選択肢その3</label></li>
+    </ul>
+</div>
+
+<div class="c-form__inner">
+    <ul class="c-form-toggle__list--inline">
+        <li><label><input type="radio" name="radio2" value="" class="c-form-toggle__radio">選択肢その1</label></li>
+        <li><label><input type="radio" name="radio2" value="" class="c-form-toggle__radio">選択肢その2</label></li>
+        <li><label><input type="radio" name="radio2" value="" class="c-form-toggle__radio">選択肢その3</label></li>
+    </ul>
+</div>
+```
+*/
+%label {
+    cursor: pointer;
+}
+.c-form-toggle__list {
+    li {
+        display: block;
+        cursor: pointer;
+        &:not(:first-of-type) {
+            margin-top: 20px;
+        }
+        label {
+            @extend %label;
+        }
+    }
+    &--inline li {
+        @include pc {
+            display: inline-block;
+            cursor: pointer;
+            &:not(:first-of-type) {
+                margin-left: 20px;
+            }
+        }
+        @include sp {
+            display: block;
+            &:not(:first-of-type) {
+                margin-top: 20px;
+            }
+        }
+        label {
+            @extend %label;
+        }
+    }
+}
+%toggle {
+    display: inline-block;
+    margin-right: 5px;  
+}
+.c-form-toggle__radio {
+    @extend %toggle;
+}
+/*
+---
+name: Toggle checkbox (default)
+category:
+- component/form/toggle
+---
+
+```html
+<div class="c-form__inner">
+    <ul class="c-form-toggle__list">
+        <li><label><input type="checkbox" name="" value="" class="c-form-toggle__checkbox">選択肢その1</label></li>
+        <li><label><input type="checkbox" name="" value="" class="c-form-toggle__checkbox">選択肢その2</label></li>
+        <li><label class="c-form-toggle__label"><input type="checkbox" name="" value="" class="c-form-toggle__checkbox">選択肢その3</label></li>
+    </ul>
+</div>
+
+<div class="c-form__inner">
+    <ul class="c-form-toggle__list--inline">
+        <li><label><input type="checkbox" name="" value="" class="c-form-toggle__checkbox">選択肢その1</label></li>
+        <li><label><input type="checkbox" name="" value="" class="c-form-toggle__checkbox">選択肢その2</label></li>
+        <li><label><input type="checkbox" name="" value="" class="c-form-toggle__checkbox">選択肢その3</label></li>
+    </ul>
+</div>
+```
+*/
+.c-form-toggle__checkbox {
+    @extend %toggle;    
+}
+/*
+---
+name: Toggle radio button (designed)
+category:
+- component/form/toggle
+---
+
+```html
+<div class="c-form__inner">
+    <ul class="c-form-toggle__list">
+        <li class="c-form-toggle__radio--design">
+            <input type="radio" name="radio3" value="" checked="checked" id="radio1">
+            <label for="radio1">選択肢その1</label>
+        </li>
+        <li class="c-form-toggle__radio--design">
+            <input type="radio" name="radio3" value="" id="radio2">
+            <label for="radio2">選択肢その2</label>
+        </li>
+        <li class="c-form-toggle__radio--design">
+            <input type="radio" name="radio3" value="" id="radio3">
+            <label for="radio3">選択肢その3</label>
+        </li>
+    </ul>
+</div>
+
+<div class="c-form__inner">
+    <ul class="c-form-toggle__list--inline">
+        <li class="c-form-toggle__radio--design">
+            <input type="radio" name="radio4" value="" checked="checked" id="radio4">
+            <label for="radio4">選択肢その4</label>
+        </li>
+        <li class="c-form-toggle__radio--design">
+            <input type="radio" name="radio4" value="" id="radio5">
+            <label for="radio5">選択肢その5</label>
+        </li>
+        <li class="c-form-toggle__radio--design">
+            <input type="radio" name="radio4" value="" id="radio6">
+            <label for="radio6">選択肢その6</label>
+        </li>
+    </ul>
+</div>
+```
+*/
+.c-form-toggle__radio--design {
+    position: relative;
+    input {
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        outline: none;
+        z-index: 1;
+    }
+    label {
+        padding-left: 25px;
+        cursor: pointer;   
+        @include sp {
+            display: block;
+            margin-top: 10px;
+        }
+        &::before {
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border: 1px solid $c_main;
+            border-radius: 50%;
+            background-color: $c_white;
+            vertical-align: middle;
+            transform: translate(0, -50%);
+            transition: .1s;
+            z-index: 10;
+            content: "";
+        } 
+    }
+    input:checked + label {
+        color: $c_main;
+        &::after {
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            left: 4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: $c_main;
+            transform: translate(0, -50%);
+            transition: .1s;
+            z-index: 10;
+            content: "";
+        }
+    }
+}
+/*
+---
+name: Toggle checkbox (designed)
+category:
+- component/form/toggle
+---
+
+```html
+<div class="c-form__inner">
+    <ul class="c-form-toggle__list">
+        <li class="c-form-toggle__checkbox--design">
+            <input type="checkbox" name="" value="" checked="checked" id="check1">
+            <label for="check1">選択肢その1</label>
+        </li>
+        <li class="c-form-toggle__checkbox--design">
+            <input type="checkbox" name="" value="" id="check2">
+            <label for="check2">選択肢その2</label>
+        </li>
+        <li class="c-form-toggle__checkbox--design">
+            <input type="checkbox" name="" value="" id="check3">
+            <label for="check3">選択肢その3</label>
+        </li>
+    </ul>
+</div>
+ 
+<div class="c-form__inner">
+    <ul class="c-form-toggle__list--inline">
+        <li class="c-form-toggle__checkbox--design">
+            <input type="checkbox" name="" value="" checked="checked" id="check4">
+            <label for="check4">選択肢その4</label>
+        </li>
+        <li class="c-form-toggle__checkbox--design">
+            <input type="checkbox" name="" value="" id="check5">
+            <label for="check5">選択肢その5</label>
+        </li>
+        <li class="c-form-toggle__checkbox--design">
+            <input type="checkbox" name="" value="" id="check6">
+            <label for="check6">選択肢その6</label>
+        </li>
+    </ul>
+</div>
+```
+*/
+.c-form-toggle__checkbox--design {
+    position: relative;
+    input {
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        z-index: 1;
+    }
+    label {
+        padding-left: 30px;
+        line-height: 20px;
+        cursor: pointer;   
+        @include sp {
+            display: block;
+            margin-top: 10px;
+        }
+    }
+    input + label::before {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        border: 1px solid $c_main;
+        border-radius: 2px;
+        background-color: $c_white;
+        vertical-align: middle;
+        transition: .1s;
+        content: "";
+    }
+    input:checked + label {
+        color: $c_main;
+        &::before {
+            background-color: $c_main;
+        }
+        &::after {
+            display: inline-block;
+            position: absolute;
+            top: calc(50% - 2px);
+            left: 4px;
+            z-index: 10;
+            transform: translate(0, -50%) rotate(-45deg);
+            width: 12px;
+            height: 6px;
+            border: {
+                bottom: 2px solid $c_white;
+                left: 2px solid $c_white;
+            }
+            background-color: $c_main;
+            transition: .1s;
+            content: "";
+        }
+    }
+}

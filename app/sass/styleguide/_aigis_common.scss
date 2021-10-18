@@ -1,0 +1,70 @@
+/********************************************
+		Common
+********************************************/
+html {
+    font-size: 62.5%;
+    line-height: 1.5;
+}
+
+.aigis-preview {
+    font-family: "Hiragino Kaku Gothic Pro", sans-serif, Meiryo, "MS PGothic", "MS UI Gothic", Helvetica, Arial;
+    color: $base_font_color;
+    @include fz($base_font_size);
+
+    *,
+    *:after,
+    *:before {
+        box-sizing: border-box;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        line-height: 1;
+        font-weight: normal;
+        margin: 0;
+        padding: 0;
+        @include fz(15);
+    }
+
+    dd,
+    dl,
+    dt,
+    input,
+    label,
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        font-family: "Hiragino Kaku Gothic Pro", sans-serif, Meiryo, "MS PGothic", "MS UI Gothic", Helvetica, Arial;
+        text-decoration: none;
+        color: inherit;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    img {
+        vertical-align: top;
+    }
+
+    button,
+    input[type="button"],
+    input[type="submit"] {
+        border: none;
+    }
+
+    iframe {
+        vertical-align: top;
+    }
+}

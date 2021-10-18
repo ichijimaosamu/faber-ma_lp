@@ -1,0 +1,289 @@
+/*
+---
+name: base button
+category:
+ - component/button
+tag:
+ - base
+ - button
+---
+
+## This is base button
+
+* Base button style.
+* Use `a` or `button` tag.
+
+```html
+<div>
+  <button class="c-button">ボタン</button>
+  <button class="c-button icon-arrow-right">ボタン</button>
+  <button class="c-button icon-arrow-left">ボタン</button>
+</div>
+<div>
+  <button class="c-button--strong">強調ボタン</button>
+  <button class="c-button--strong icon-arrow-right">強調ボタン</button>
+  <button class="c-button--strong icon-arrow-left">強調ボタン</button>
+</div>
+<div>
+  <button class="c-button--disabled">非活性ボタン</button>
+  <button class="c-button--disabled icon-arrow-right">非活性ボタン</button>
+  <button class="c-button--disabled icon-arrow-left">非活性ボタン</button>
+</div>
+<div>
+  <button class="c-button--return">戻るボタン</button>
+  <button class="c-button--return icon-arrow-right">戻るボタン</button>
+  <button class="c-button--return icon-arrow-left">戻るボタン</button>
+</div>
+```
+*/
+%icon-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+  @include fz(18);
+}
+
+%button {
+  display: inline-block;
+  position: relative;
+  @include fz(16);
+  line-height: 1.15;
+  color: #fff;
+  padding: 1em 2em;
+  border-radius: 4px;
+  background-color: $c_main;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &.icon-arrow {
+    &-right {
+      &:before {
+        right: 12px;
+        @extend %icon-arrow;
+        @include fa(fas);
+        content: $fa-var-angle-right;
+      }
+    }
+
+    &-left {
+      &:after {
+        left: 12px;
+        @extend %icon-arrow;
+        @include fa(fas);
+        content: $fa-var-angle-left;
+      }
+    }
+  }
+
+  &:hover {
+    background-color: lighten($c_main, 15%);
+  }
+}
+
+.c-button {
+  &__outer {
+    text-align: center;
+    margin: 20px auto;
+    button{
+      margin: 0 10px;
+    }
+  }
+
+  // デフォルトボタン
+  & {
+    @extend %button;
+  }
+
+  // 強調ボタン
+  &--strong {
+    @extend %button;
+    font-weight: bold;
+  }
+
+  // 非活性ボタン
+  &--disabled {
+    @extend %button;
+    background-color: #bbb;
+    pointer-events: none;
+  }
+
+  // リターンボタン
+  &--return {
+    @extend %button;
+    border: solid 1px $c_main;
+    background-color: #fff;
+    color: $c_main;
+
+    &:hover {
+      background-color: darken($c_white, 10%);
+    }
+  }
+
+}
+
+
+
+
+.c-linkBtn {
+  @include pc() {
+    display: inline-block;
+  }
+  @include sp() {
+    display: block;
+    margin-top: 10px;
+  }
+  @media all and (-ms-high-contrast: none) {
+    position: relative;
+  }
+
+  &Wrapper {
+    text-align: center;
+  }
+
+  a,
+  span {
+    @media screen and (-webkit-min-device-pixel-ratio: 0) {
+      position: relative;
+    }
+    display: table-cell;
+    vertical-align: middle;
+    width: 200px;
+    height: 70px;
+    background-color: #00ADCC;
+    color: #FFF;
+    @include fz(16);
+    font-weight: bold;
+    text-align: center;
+    @include tablet() {
+      width: 150px;
+    }
+    @include sp() {
+      display: block;
+      width: 90%;
+      height: auto;
+      margin: 0 auto;
+      padding: 17px 0 20px;
+
+      &.-company,
+      &.-staff {
+        width: 100%;
+      }
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      right: 16px;
+      height: 1px;
+      background-color: #FFF;
+    }
+    &:before {
+      bottom: 13px;
+      width: 16px;
+    }
+    &:after {
+      bottom: 16px;
+      width: 7px;
+      transform: rotate(45deg);
+    }
+  }
+
+  span {
+    transition: opacity 0.15s linear;
+    @include sp() {
+      padding: 0;
+    }
+
+    &:hover {
+      opacity: .75;
+    }
+
+    &.-prev {
+      &:before,
+      &:after {
+        left: 16px;
+      }
+      &:after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  input {
+    display: block;
+    width: 200px;
+    height: 70px;
+    background-color: #00ADCC;
+    color: #FFF;
+    @include fz(16);
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    @include sp() {
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+      padding: 17px 0 20px;
+    }
+
+    &.-prev {
+      background-color: #999;
+    }
+  }
+}
+
+.p-pageTop {
+  transition: opacity 0.15s linear;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  background-color: #FFF;
+  border: 1px solid #54c4ea;
+  border-radius: 50%;
+  cursor: pointer;
+  @include sp() {
+    right: 5px;
+    bottom: 5px;
+    width: 40px;
+    height: 40px;
+  }
+
+  &:hover {
+    @include pc() {
+      opacity: .75;
+    }
+  }
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+  }
+  &:before {
+    width: 2px;
+    height: 8px;
+    top: 22px;
+    left: 23px;
+    background-color: #54c4ea;
+    @include sp() {
+      top: 18px;
+      left: 18px;
+    }
+  }
+  &:after {
+    top: 18px;
+    left: 20px;
+    border-style: solid;
+    border-color: transparent #54c4ea transparent transparent;
+    transform: rotate(-135deg);
+    border-width: 8px 8px 0 0;
+    @include sp() {
+      top: 14px;
+      left: 15px;
+    }
+  }
+}

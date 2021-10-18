@@ -1,0 +1,43 @@
+/*
+ libraries
+-------------------------------------------------- */
+// ライブラリ
+@import "libraries/font-awesome5/font-awesome";
+@import "libraries/flexslider/flexslider";
+@import "libraries/slickslider/slick";
+@import "libraries/slickslider/slick-theme";
+/*
+ foundation
+-------------------------------------------------- */
+// デフォルトスタイルの初期化、変数管理 等
+@import "partials/var";
+@import "partials/functions";
+@import "partials/extends";
+@import "partials/mixin/mixins";
+@import "partials/animations";
+@import "foundation/normalize";
+@import "foundation/common";
+
+// xxx/** は xxx配下の_xxx.scssファイルをgulp-globですべて読み込んでいます。
+/*
+ layout
+-------------------------------------------------- */
+// サイト全体のブロック
+@import "layout/**";
+
+/*
+ object
+-------------------------------------------------- */
+// サイト内で繰り返されるパターン
+/* component --------------------------- */
+// 再利用できるもの - ボタン、ナビゲーション、ページャ 等
+@import "object/component/**";
+
+/* project ----------------------------- */
+// 固有のデザイン
+@import "object/project/**";
+
+/* utility ----------------------------- */
+// clearfix、margin 等
+@import "object/utility/z-index";
+@import "object/utility/utility";

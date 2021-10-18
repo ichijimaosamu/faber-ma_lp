@@ -1,0 +1,34 @@
+/*
+---
+name: Accordion
+category:
+ - component/js/accordion
+---
+
+```html
+<dl class="c-accordion" data-js="accordion-box">
+  <dt class="c-accordion__title" data-js="accordion-toggle">見出しクリックでコンテンツをアコーディオン開閉</dt>
+  <dd class="c-accordion__contents">コンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツコンテンツ</dd>
+</dl>
+
+```
+*/
+
+.c-accordion{
+  transition: .4s;
+  &__title{
+    cursor: pointer;
+    transition: .4s;
+    &:hover{
+      opacity: .7; 
+    }
+  }
+  &__contents{
+    display: none;
+    transition: .4s;
+  }
+  &.is-active .c-accordion__contents{
+    display: block;
+  }
+}
+

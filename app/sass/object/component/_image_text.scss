@@ -1,0 +1,101 @@
+/*
+---
+name: ImageText
+category:
+ - component/figure/imageText
+---
+
+## ImageText
+
+```html
+<div class="c-imageText">
+	<div class="c-imageText__picture--top">
+		<img src="/files/user/images/600x400.png">
+		<p class="c-imageText__caption">画像のキャプションが入ります。</p>
+	</div>
+	<p class="c-text">画像上配置＋テキストです。画像上配置＋テキストです。画像上配置＋テキストです。画像上配置＋テキストです。画像上配置＋テキストです。画像上配置＋テキストです。画像上配置＋テキストです。画像上配置＋テキストです。画像上配置＋テキストです。</p>
+</div>
+
+<div class="c-imageText">
+	<div class="c-imageText__picture--right">
+		<img src="/files/user/images/300x200.png">
+		<p class="c-imageText__caption">画像のキャプションが入ります。画像のキャプションが入ります。画像のキャプションが入ります。</p>
+	</div>
+	<p class="c-text">画像右配置＋テキストです。画像右配置＋テキストです。画像右配置＋テキストです。画像右配置＋テキストです。画像右配置＋テキストです。<br><br>画像右配置＋テキストです。<br>画像右配置＋テキストです。<br>画像右配置＋テキストです。<br>画像右配置＋テキストです。画像右配置＋テキストです。</p>
+</div>
+
+<div class="c-imageText">
+	<div class="c-imageText__picture--left">
+		<img src="/files/user/images/200x133.png">
+		<p class="c-imageText__caption">画像のキャプションが入ります。画像のキャプションが入ります。</p>
+	</div>
+	<p class="c-text">画像左配置＋テキストです。画像左配置＋テキストです。<br>画像左配置＋テキストです。画像左配置＋テキストです。画像左配置＋テキストです。画像左配置＋テキストです。画像左配置＋テキストです。<br>画像左配置＋テキストです。画像左配置＋テキストです。画像左配置＋テキストです。画像左配置＋テキストです。画像左配置＋テキストです。画像左配置＋テキストです。画像左配置＋テキストです。画像左配置＋テキストです。</p>
+</div>
+
+<div class="c-imageText">
+	<p class="c-text">画像下配置＋テキストです。画像下配置＋テキストです。画像下配置＋テキストです。画像下配置＋テキストです。</p>
+	<div class="c-imageText__picture--bottom">
+		<img src="/files/user/images/600x400.png">
+		<p class="c-imageText__caption">画像のキャプションが入ります。画像のキャプションが入ります。画像のキャプションが入ります。画像のキャプションが入ります。画像のキャプションが入ります。画像のキャプションが入ります。画像のキャプションが入ります。</p>
+	</div>
+</div>
+
+```
+*/
+
+
+.c-imageText {
+	@include pc() { margin: 30px 0; }
+	@include sp() { margin: 20px 0; }
+	&::after {
+		display: block;
+		clear: both;
+		content: "";
+	}
+	&__picture {
+		&--top {
+			text-align: center;
+			@include pc() { margin: 0 auto 20px; }
+			@include sp() { margin-bottom: 10px; }
+		}
+		&--right {
+			@include pc() {
+				float: right;
+				margin: 0 0 20px 20px;
+			}
+			@include sp() {
+				margin-top: 10px;
+				text-align: center;
+			}
+		}
+		&--bottom {
+			text-align: center;
+			@include pc() { margin: 20px auto 0; }
+			@include sp() { margin-top: 10px; }
+		}
+		&--left {
+			@include pc() {
+				float: left;
+				margin: 0 20px 20px 0;
+			}
+		}
+		@at-root [class^="c-imageText__picture"] {
+			& {
+				@include pc() {
+					display: table;
+					width: 200px;
+					text-align: center;
+				}
+			}
+			img {
+				@include sp() { width: 100%; }
+			}
+		}
+	}
+	&__caption {
+		width: 100%;
+		margin: 10px auto 0;
+		color: #666;
+		@include fz(12);
+	}
+}

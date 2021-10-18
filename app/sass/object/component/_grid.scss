@@ -1,0 +1,191 @@
+/*
+---
+name: Grid
+category:
+ - component/grid
+---
+
+```html
+<div class="c-grid-col-12">
+  <div class="c-grid-col-1">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-1">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-1">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-1">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-1">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-1">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-1">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-1">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-1">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-1">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-1">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-1">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+</div>
+
+<div class="c-grid-col-12">
+  <div class="c-grid-col-2">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-2">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-2">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-2">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-2">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-2">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+</div>
+
+<div class="c-grid-col-12">
+  <div class="c-grid-col-3">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-3">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-3">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-3">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+</div>
+
+<div class="c-grid-col-12">
+  <div class="c-grid-col-4">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-4">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-4">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+</div>
+
+<div class="c-grid-col-12">
+  <div class="c-grid-col-5">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-7">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+</div>
+
+<div class="c-grid-col-12">
+  <div class="c-grid-col-6">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-6">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+</div>
+
+<div class="c-grid-col-12">
+  <div class="c-grid-col-7">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-5">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+</div>
+
+<div class="c-grid-col-12">
+  <div class="c-grid-col-8">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-4">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+</div>
+
+<div class="c-grid-col-12">
+  <div class="c-grid-col-9">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-3">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+</div>
+
+<div class="c-grid-col-12">
+  <div class="c-grid-col-10">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-2">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+</div>
+
+<div class="c-grid-col-12">
+  <div class="c-grid-col-11">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+  <div class="c-grid-col-1">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+</div>
+
+<div class="c-grid-col-12">
+  <div class="c-grid-col-12">
+    <div class="c-grid__item">テキスト</div>
+  </div>
+</div>
+```
+*/
+/* .c-grid-col-1 = width: 8.333% */
+@for $value from 1 through $grid_split_num {
+  .c-grid-col-#{$value} {
+    @include pc() {
+      width: #{$value * (100% / $grid_split_num)};
+    }
+    @include sp() {
+      width: 100%;
+    }
+  }
+}
+
+.c-grid__item {
+  width: 100%;
+  padding: 0.2em;
+  border: solid 1px $c_border;
+  background-color: #fff;
+  text-align: center;
+}
+
+[class*=" c-grid-col-"],
+[class^="c-grid-col-"] {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

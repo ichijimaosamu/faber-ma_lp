@@ -1,0 +1,67 @@
+/*
+---
+name: Error MessageBox
+category:
+ - component/form/error
+---
+
+```html
+<div class="c-form-errorBox">
+    <div class="c-form-errorBox__heading">
+        <i class="fas fa-exclamation-triangle fa-2x"></i>エラーが発生しました。
+    </div>
+    <ul class="c-form-errorBox__list">
+        <li>お名前は必ず入力してください。</li>
+        <li>・お名前は必ず入力してください。</li>
+        <li>※ お名前は必ず入力してください。</li>
+    </ul>
+</div>
+```
+*/
+.c-form-errorBox {
+    & {
+        width: 100%;
+        margin: 20px auto;
+        padding: 20px;
+        border: 2px solid #D91E10;
+        background-color: rgba(217,30,16,.1);
+        color: #D91E10;
+    }
+    &__heading {
+        padding-left: 10px;
+        @include fz(16);
+        font-weight: bold;
+        i {
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+    }
+    &__list {
+        margin-top: 20px;
+        li {
+            margin-top: 10px;
+        }
+    }
+}
+
+/*
+---
+name: Error Message
+category:
+- component/form/error
+---
+
+```html
+<div class="c-form__inner">
+    <input type="text" name="" value="" class="c-form-input" placeholder="テキストを入力してください。">
+    <div class="c-form-error__msg">
+        ※ お名前は必ず入力してください。
+    </div>
+</div>
+```
+*/
+.c-form-error__msg {
+    display: block;
+    margin-top: 10px;
+    color: #D91E10;
+}

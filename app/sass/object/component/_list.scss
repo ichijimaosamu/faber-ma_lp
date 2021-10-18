@@ -1,0 +1,164 @@
+// リスト共通
+[class^='c-list'] li {
+	position: relative;
+	padding-left: 24px;
+	&:not(:first-child) { margin-top: 5px; }
+	&::before {
+		position: absolute;
+		left: 0;
+		content: "・";
+	}
+}
+
+/*
+---
+name: List
+category:
+ - component/typography/list
+---
+
+## disc list
+
+```html
+<ul class="c-list--disc">
+	<li>リストです。リストです。リストです。リストです。リストです。リストです。</li>
+	<li>リストです。リストです。リストです。リストです。リストです。リストです。</li>
+	<li>リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。</li>
+</ul>
+```
+*/
+
+.c-list--disc {
+	& { padding-left: 1em; }
+	& li {
+		list-style: disc;
+		padding-left: 0;
+		&::before { content: none; }
+	}
+}
+
+/*
+---
+name: List
+category:
+ - component/typography/list
+---
+
+## number list
+
+```html
+<ul class="c-list--number">
+	<li>リストです。リストです。リストです。リストです。リストです。リストです。</li>
+	<li>リストです。リストです。リストです。リストです。リストです。リストです。</li>
+	<li>リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。</li>
+</ul>
+```
+*/
+
+.c-list--number li {
+	counter-increment: cnt;
+	&::before { content: counter(cnt) "."; }
+}
+
+
+/*
+---
+name: List
+category:
+ - component/typography/list
+---
+
+## number list（brackets）
+
+```html
+<ul class="c-list--number-brackets">
+	<li>リストです。リストです。リストです。リストです。リストです。リストです。</li>
+	<li>リストです。リストです。リストです。リストです。リストです。リストです。</li>
+	<li>リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。</li>
+</ul>
+```
+*/
+
+.c-list--number-brackets li {
+	counter-increment: cnt;
+	&::before { content: "(" counter(cnt) ")"; }
+}
+
+
+/*
+---
+name: List
+category:
+ - component/typography/list
+---
+
+## annotation list
+
+```html
+<ul class="c-list--annotation">
+	<li>リストです。リストです。リストです。リストです。リストです。リストです。</li>
+	<li>リストです。リストです。リストです。リストです。リストです。リストです。</li>
+	<li>リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。</li>
+</ul>
+```
+*/
+
+.c-list--annotation li {
+	&::before { content: "※"; }
+}
+
+
+/*
+---
+name: List
+category:
+ - component/typography/list
+---
+
+## asterisk list
+
+```html
+<ul class="c-list--asterisk">
+	<li>リストです。リストです。リストです。リストです。リストです。リストです。</li>
+	<li>リストです。リストです。リストです。リストです。リストです。リストです。</li>
+	<li>リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。</li>
+</ul>
+```
+*/
+
+.c-list--asterisk li {
+	padding-left: 14px;
+	&::before { content: "*"; }
+}
+
+
+/*
+---
+name: List
+category:
+ - component/typography/list
+---
+
+## link list
+
+```html
+<ul class="c-list--link">
+	<li><a href="/DUMMY"><i class="c-link__icon c-list__icon fas fa-caret-right"></i>リストです。リストです。リストです。リストです。リストです。リストです。</a></li>
+	<li><a href="/DUMMY"><i class="c-link__icon c-list__icon fas fa-caret-right"></i>リストです。リストです。リストです。リストです。リストです。リストです。</a></li>
+	<li><a href="/DUMMY"><i class="c-link__icon c-list__icon fas fa-caret-right"></i>リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。リストです。</a></li>
+</ul>
+```
+*/
+
+.c-list--link li {
+	position: relative;
+	padding-left: 14px;
+	&::before { content: none; }
+}
+
+.c-list__icon {
+	position: absolute;
+	top: 3px;
+	left: 0;
+	color: $c_main;
+}

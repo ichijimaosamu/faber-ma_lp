@@ -1,0 +1,164 @@
+/*
+---
+name: TopicsList
+category:
+ - component/topics/topicsList
+---
+
+```html
+<ul class="c-topics__list">
+	<li class="c-topics__item">
+		<time class="c-topics__date" datetime="YYYY-mm-dd">2017.10.19</time>
+		<div class="c-topics__label">カテゴリ</div>
+		<div class="c-topics__title"><a href="/DUMMY">記事タイトルが入ります。記事タイトルが入ります。</a></div>
+	</li>
+	<li class="c-topics__item">
+		<time class="c-topics__date" datetime="YYYY-mm-dd">2017.10.19</time>
+		<div class="c-topics__label">カテゴリ</div>
+		<div class="c-topics__title"><a href="/DUMMY">記事タイトルが入ります。記事タイトルが入ります。記事タイトルが入ります。記事タイトルが入ります。記事タイトルが入ります。記事タイトルが入ります。記事タイトルが入ります。記事タイトルが入ります。</a></div>
+	</li>
+	<li class="c-topics__item">
+		<time class="c-topics__date" datetime="YYYY-mm-dd">2017.10.19</time>
+		<div class="c-topics__label">カテゴリ</div>
+		<div class="c-topics__title"><a href="/DUMMY">記事タイトルが入ります。記事タイトルが入ります。</a></div>
+	</li>
+	<li class="c-topics__item">
+		<time class="c-topics__date" datetime="YYYY-mm-dd">2017.10.19</time>
+		<div class="c-topics__label">カテゴリ</div>
+		<div class="c-topics__title"><a href="/DUMMY">記事タイトルが入ります。記事タイトルが入ります。</a></div>
+	</li>
+	<li class="c-topics__item">
+		<time class="c-topics__date" datetime="YYYY-mm-dd">2017.10.19</time>
+		<div class="c-topics__label">カテゴリ</div>
+		<div class="c-topics__title"><a href="/DUMMY">記事タイトルが入ります。記事タイトルが入ります。</a></div>
+	</li>
+</ul>
+```
+*/
+
+.c-topics {
+	&__item {
+		@include pc() {
+			display: flex;
+			width: 100%;
+			flex-wrap: nowrap;
+			align-items: center;
+		}
+		&:not(:first-child) {
+			margin-top: 10px;
+			padding-top: 10px;
+			border-top: 1px solid $c_border;
+		}
+	}
+	&__date {
+		@include fz(13);
+		flex: 0 0 auto;
+	}
+	&__label {
+		display: inline-block;
+		background-color: $c_main;
+		margin: 0 10px;
+		color: #fff;
+		@include fz(12);
+		text-align: center;
+		flex: 0 0 auto;
+		@include pc() { padding: 4px 15px; }
+		@include sp() { padding: 2px 20px; }
+	}
+	&__title {
+		flex: 2 1 auto;
+		@include sp() { margin-top: 5px; }
+	}
+}
+
+
+/*
+---
+name: TopicsList
+category:
+ - component/topics/topicsList
+---
+
+```html
+<ul class="c-topics__card__list">
+	<li class="c-topics__card__item">
+		<a class="c-topics__card__link" href="/DUMMY">
+			<div class="c-topics__card__picture"><img src="/files/user/images/600x400.png" alt="dummy picture"></div>
+			<div class="c-topics__card__contents">
+				<div class="c-topics__label">カテゴリ</div>
+				<time class="c-topics__date c-topics__card__date" datetime="YYYY-mm-dd">2017.10.19</time>
+				<div class="c-topics__title">記事タイトルが入ります。記事タイトルが入ります。</div>
+			</div>
+		</a>
+	</li>
+	<li class="c-topics__card__item">
+		<a class="c-topics__card__link" href="/DUMMY">
+			<div class="c-topics__card__picture"><img src="/files/user/images/600x400.png" alt="dummy picture"></div>
+			<div class="c-topics__card__contents">
+				<div class="c-topics__label">カテゴリ</div>
+				<time class="c-topics__date c-topics__card__date" datetime="YYYY-mm-dd">2017.10.19</time>
+				<div class="c-topics__title">記事タイトルが入ります。記事タイトルが入ります。</div>
+			</div>
+		</a>
+	</li>
+	<li class="c-topics__card__item">
+		<a class="c-topics__card__link" href="/DUMMY">
+			<div class="c-topics__card__picture"><img src="/files/user/images/600x400.png" alt="dummy picture"></div>
+			<div class="c-topics__card__contents">
+				<div class="c-topics__label">カテゴリ</div>
+				<time class="c-topics__date c-topics__card__date" datetime="YYYY-mm-dd">2017.10.19</time>
+				<div class="c-topics__title">記事タイトルが入ります。記事タイトルが入ります。</div>
+			</div>
+		</a>
+	</li>
+	<li class="c-topics__card__item">
+		<a class="c-topics__card__link" href="/DUMMY">
+			<div class="c-topics__card__picture"><img src="/files/user/images/600x400.png" alt="dummy picture"></div>
+			<div class="c-topics__card__contents">
+				<div class="c-topics__label">カテゴリ</div>
+				<time class="c-topics__date c-topics__card__date" datetime="YYYY-mm-dd">2017.10.19</time>
+				<div class="c-topics__title">記事タイトルが入ります。記事タイトルが入ります。</div>
+			</div>
+		</a>
+	</li>
+</ul>
+```
+*/
+
+.c-topics__card {
+	&__list {
+		@include pc() {
+			display: flex;
+			flex-wrap: wrap;
+		}
+	}
+	&__item {
+		@include pc() {
+			width: 32%;
+			margin-bottom: 2%;
+		}
+		&:not(:nth-child(3n+1)) {
+			@include pc() { margin-left: 2%; }
+		}
+		&:not(:first-child) {
+			@include sp() { margin-top: 20px; }
+		}
+	}
+	&__link {
+		display: block;
+		transition: .4s opacity;
+		&:hover { opacity: .7; }
+	}
+	&__picture {
+		img { width: 100%; }
+	}
+	&__contents {
+		background-color: #fafafa;
+		@include pc() { padding: 15px; }
+		@include sp() { padding: 20px; }
+	}
+	&__date {
+		display: block;
+		margin: 10px 0 5px;
+	}
+}
